@@ -1,0 +1,12 @@
+.game {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.game_board {
+  display: grid;
+  grid-template-columns: repeat(4, 120px);
+  gap: 12px;
+}

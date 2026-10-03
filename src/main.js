@@ -1,5 +1,6 @@
 import { createHeader } from "./components/header/header.js";
 import { createFooter } from "./components/footer/footer.js";
+import { createGame } from "./game/game.js";
 
 const GITHUB_URL = "https://github.com/al-lumiere";
 
@@ -15,7 +16,8 @@ const header = createHeader({
   },
 });
 
+const game = createGame();
 const footer = createFooter(GITHUB_URL);
 
-app.append(header, footer);
+app.append(header, game, footer);
 document.body.append(app);
