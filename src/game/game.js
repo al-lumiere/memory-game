@@ -4,14 +4,14 @@ import { shuffle } from "./shuffle.js";
 import { createStatistics } from "../components/statistics/statistics.js";
 
 const PAIRS = [
-  { id: "cobalt", color: "#223AF6" },
-  { id: "cyan", color: "#6DC4CC" },
-  { id: "green", color: "#4AAA46" },
-  { id: "lime", color: "#8EF96C" },
-  { id: "yellow", color: "#FEE119" },
-  { id: "orange", color: "#F34A13" },
-  { id: "pink", color: "#E1A3FA" },
-  { id: "purple", color: "#DD4CFF" },
+  { id: "cobalt", color: "var(--cobalt)" },
+  { id: "cyan", color: "var(--cyan)" },
+  { id: "green", color: "var(--green)" },
+  { id: "lime", color: "var(--lime)" },
+  { id: "yellow", color: "var(--yellow)" },
+  { id: "orange", color: "var(--orange)" },
+  { id: "pink", color: "var(--pink)" },
+  { id: "purple", color: "var(--purple)" },
 ];
 
 export function createGame() {
@@ -23,6 +23,19 @@ export function createGame() {
 
   const main = document.createElement("main");
   main.className = "game";
+
+  const stage = document.createElement("div");
+  stage.className = "game_stage";
+
+  const background = document.createElement("div");
+  background.className = "game_background";
+  background.setAttribute("aria-hidden", "true");
+
+  for (let i = 0; i < 4; i += 1) {
+    const circle = document.createElement("span");
+    circle.className = "game_background-circle";
+    background.append(circle);
+  }
 
   const board = document.createElement("div");
   board.className = "game_board";
@@ -77,6 +90,8 @@ export function createGame() {
       matchedPairs += 1;
       statistics.setPairs(matchedPairs);
 
+      main.style.setProperty("--background-circle", firstCard.dataset.color);
+
       firstCard = null;
       secondCard = null;
       isBoardLocked = false;
@@ -105,6 +120,7 @@ export function createGame() {
     console.log(`Game finished in ${moves} moves`);
   }
 
-  main.append(board, statistics.element);
+  stage.append(background, board, statistics.element);
+  main.append(stage);
   return main;
 }

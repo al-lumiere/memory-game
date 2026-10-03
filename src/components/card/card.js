@@ -3,6 +3,7 @@ export function createCard({ pairId, color, onClick }) {
   card.className = "card";
   card.type = "button";
   card.dataset.pairId = pairId;
+  card.dataset.color = color;
   card.setAttribute("aria-label", "Memory card");
 
   const inner = document.createElement("span");
