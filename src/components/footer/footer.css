@@ -20,24 +20,9 @@
 }
 
 @media (max-width: 480px) {
-  .header {
-    align-items: center;
-    gap: 12px;
-  }
-
-  .header_title {
-    font-size: 16px;
-    line-height: 20px;
-    white-space: nowrap;
-  }
-
-  .header_actions {
-    gap: 14px;
-  }
-
-  .header_button {
-    font-size: 12px;
-    line-height: 16px;
+  .footer_link {
+    font-size: var(--title-mobile-size);
+    line-height: var(--title-mobile-lh);
     white-space: nowrap;
   }
 }

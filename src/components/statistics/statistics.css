@@ -16,3 +16,10 @@
   font-weight: 400;
   text-transform: lowercase;
 }
+
+@media (max-width: 480px) {
+  .statistics_item {
+    font-size: var(--title-four-size);
+    line-height: var(--title-four-lh);
+  }
+}

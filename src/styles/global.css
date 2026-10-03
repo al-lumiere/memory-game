@@ -19,6 +19,8 @@
   --title-two-lh: 25px;
   --title-three-size: 16px;
   --title-three-lh: 20px;
+  --title-mobile-size: 12px;
+  --title-mobile-lh: 16px;
 }
 
 *,
@@ -32,7 +34,6 @@ html {
 }
 
 body {
-  min-width: 380px;
   min-height: 100vh;
   display: flex;
   margin: 0 auto;
@@ -86,4 +87,10 @@ svg {
 img {
   max-width: 100%;
   height: auto;
+}
+
+@media (max-width: 480px) {
+  body {
+    padding-inline: 16px;
+  }
 }
