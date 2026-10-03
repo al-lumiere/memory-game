@@ -1,6 +1,8 @@
 import { createCard } from "../components/card/card.js";
 import { shuffle } from "./shuffle.js";
 
+import { createStatistics } from "../components/statistics/statistics.js";
+
 const PAIRS = [
   { id: "cobalt", color: "#223AF6" },
   { id: "cyan", color: "#6DC4CC" },
@@ -36,7 +38,8 @@ export function createGame() {
     board.append(card);
   });
 
-  main.append(board);
+  const statistics = createStatistics();
+  main.append(board, statistics.element);
 
   return main;
 }

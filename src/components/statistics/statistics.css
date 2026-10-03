@@ -1,0 +1,13 @@
+.statistics {
+  display: flex;
+  flex-direction: row;
+  gap: 60px;
+  width: 100%;
+  justify-content: center;
+}
+
+.statistics_item {
+  display: flex;
+  gap: 8px;
+  margin: 0;
+}
