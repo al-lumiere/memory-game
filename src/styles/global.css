@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+:root {
+  --background: #d9e4fa;
+  --background-circle: #aeb6c7;
+  --cobalt: #415aef;
+  --cyan: #4ff2f0;
+  --green: #57dc6b;
+  --lime: #c2ec66;
+  --yellow: #f6e31c;
+  --orange: #f7481c;
+  --pink: #e169b2;
+  --purple: #7b72dd;
+  --text: #000000;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 380px;
+  margin: 0 auto;
+  font-family: "Open Sans", sans-serif;
+  color: var(--text);
+  background-color: var(--background);
+  padding: 20px;
+}
+
+h1,
+я хоч h2,
+h3,
+p {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  padding: 0;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+img,
+svg {
+  display: block;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
