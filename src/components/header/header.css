@@ -1,0 +1,37 @@
+.header {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 0 auto;
+}
+
+.header_title {
+  font-size: var(--title-one-size);
+  line-height: var(--title-one-lh);
+  font-weight: 700;
+  text-transform: lowercase;
+}
+
+.header_actions {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
+
+.header_button {
+  font-size: var(--title-two-size);
+  line-height: var(--title-two-lh);
+  font-weight: 400;
+  text-transform: lowercase;
+  opacity: 0.5;
+
+  &:hover {
+    text-decoration: underline var(--text) 2px;
+    text-underline-offset: 10px;
+    cursor: pointer;
+    opacity: 1;
+  }
+}
