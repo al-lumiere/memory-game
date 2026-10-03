@@ -1,4 +1,4 @@
-export function createCard({ pairId, color }) {
+export function createCard({ pairId, color, onClick }) {
   const card = document.createElement("button");
   card.className = "card";
   card.type = "button";
@@ -21,6 +21,8 @@ export function createCard({ pairId, color }) {
   front.append(circle);
   inner.append(back, front);
   card.append(inner);
+
+  card.addEventListener("click", () => onClick(card));
 
   return card;
 }
