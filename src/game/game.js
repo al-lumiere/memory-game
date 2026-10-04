@@ -1,6 +1,7 @@
 import { createCard } from "../components/card/card.js";
 import { createStatistics } from "../components/statistics/statistics.js";
 import { createVictoryModal } from "../components/victory-modal/victory-modal.js";
+import { saveResult } from "../components/leaderboard-modal/leaderboard.js";
 
 import { shuffle } from "./shuffle.js";
 
@@ -125,6 +126,7 @@ export function createGame() {
   }
 
   function finishGame() {
+    saveResult(moves);
     victoryModal.open(moves);
   }
 
@@ -137,7 +139,6 @@ export function createGame() {
     firstCard = null;
     secondCard = null;
     isBoardLocked = false;
-
     moves = 0;
     matchedPairs = 0;
 

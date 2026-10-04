@@ -7,7 +7,7 @@ export function createFooter(githubURL) {
   link.href = githubURL;
   link.target = "_blank";
   link.rel = "noopener noreferrer";
-  link.textContent = "Aliaksandra — GitHub ↗";
+  link.textContent = "Aliaksandra — GitHub 🔗";
 
   footer.append(link);
 
