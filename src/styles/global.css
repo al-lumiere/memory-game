@@ -34,7 +34,7 @@ html {
 }
 
 body {
-  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   margin: 0 auto;
   font-family: "Cutive Mono", serif;
@@ -51,7 +51,7 @@ body {
 }
 
 h1,
-я хоч h2,
+h2,
 h3,
 p {
   margin: 0;
