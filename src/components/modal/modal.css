@@ -1,0 +1,42 @@
+.modal {
+  width: min(420px, calc(100% - 32px));
+  padding: 0;
+  color: var(--text);
+  background: transparent;
+  border: none;
+  overflow: visible;
+}
+
+.modal::backdrop {
+  background: rgba(20, 25, 40, 0.2);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+.modal_content {
+  padding: 36px 40px;
+  background: rgba(238, 244, 253, 0.78);
+
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 20px;
+  backdrop-filter: blur(16px) saturate(35%);
+  -webkit-backdrop-filter: blur(16px) saturate(35%);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    0 18px 50px rgba(55, 70, 110, 0.12);
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+@media (max-width: 480px) {
+  .modal {
+    width: calc(100% - 32px);
+  }
+
+  .modal_content {
+    padding: 28px;
+  }
+}

@@ -1,0 +1,34 @@
+.footer {
+  display: flex;
+  justify-content: center;
+}
+
+.footer_link {
+  font-size: var(--title-three-size);
+  line-height: var(--title-three-lh);
+  font-weight: 400;
+  text-transform: lowercase;
+  opacity: 0.3;
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 200ms ease;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--background-circle);
+    border-radius: 2px;
+    outline-offset: 4px;
+    opacity: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer_link {
+    font-size: var(--title-mobile-size);
+    line-height: var(--title-mobile-lh);
+    white-space: nowrap;
+  }
+}
