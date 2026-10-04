@@ -1,7 +1,8 @@
 import { createCard } from "../components/card/card.js";
-import { shuffle } from "./shuffle.js";
-
 import { createStatistics } from "../components/statistics/statistics.js";
+import { createVictoryModal } from "../components/victory-modal/victory-modal.js";
+
+import { shuffle } from "./shuffle.js";
 
 const PAIRS = [
   { id: "cobalt", color: "var(--cobalt)" },
@@ -20,6 +21,7 @@ export function createGame() {
   let isBoardLocked = false;
   let moves = 0;
   let matchedPairs = 0;
+  let mismatchTimer = null;
 
   const main = document.createElement("main");
   main.className = "game";
@@ -41,21 +43,27 @@ export function createGame() {
   board.className = "game_board";
   board.setAttribute("aria-label", "Memory game board");
 
-  const cards = PAIRS.flatMap((pair) => [{ ...pair }, { ...pair }]);
+  const statistics = createStatistics();
 
-  const shuffledCards = shuffle(cards);
-
-  shuffledCards.forEach((cardData) => {
-    const card = createCard({
-      pairId: cardData.id,
-      color: cardData.color,
-      onClick: handleCardClick,
-    });
-
-    board.append(card);
+  const victoryModal = createVictoryModal({
+    onNewGame: newGame,
   });
 
-  const statistics = createStatistics();
+  function renderCards() {
+    const cards = PAIRS.flatMap((pair) => [{ ...pair }, { ...pair }]);
+
+    const shuffledCards = shuffle(cards);
+
+    const cardElements = shuffledCards.map((cardData) =>
+      createCard({
+        pairId: cardData.id,
+        color: cardData.color,
+        onClick: handleCardClick,
+      }),
+    );
+
+    board.replaceChildren(...cardElements);
+  }
 
   function handleCardClick(card) {
     if (
@@ -95,7 +103,6 @@ export function createGame() {
       firstCard = null;
       secondCard = null;
       isBoardLocked = false;
-      return;
 
       if (matchedPairs === PAIRS.length) {
         finishGame();
@@ -106,21 +113,48 @@ export function createGame() {
 
     isBoardLocked = true;
 
-    setTimeout(() => {
+    mismatchTimer = setTimeout(() => {
       firstCard.classList.remove("card_open");
       secondCard.classList.remove("card_open");
 
       firstCard = null;
       secondCard = null;
       isBoardLocked = false;
+      mismatchTimer = null;
     }, 900);
   }
 
   function finishGame() {
-    console.log(`Game finished in ${moves} moves`);
+    victoryModal.open(moves);
   }
 
+  function newGame() {
+    if (mismatchTimer !== null) {
+      clearTimeout(mismatchTimer);
+      mismatchTimer = null;
+    }
+
+    firstCard = null;
+    secondCard = null;
+    isBoardLocked = false;
+
+    moves = 0;
+    matchedPairs = 0;
+
+    statistics.setMoves(0);
+    statistics.setPairs(0);
+
+    main.style.removeProperty("--background-circle");
+
+    renderCards();
+  }
+
+  renderCards();
   stage.append(background, board, statistics.element);
-  main.append(stage);
-  return main;
+  main.append(stage, victoryModal.element);
+
+  return {
+    element: main,
+    newGame,
+  };
 }

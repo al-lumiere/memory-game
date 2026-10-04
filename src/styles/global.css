@@ -76,6 +76,12 @@ button {
   color: inherit;
   background: none;
   border: none;
+
+  &:focus-visible {
+    outline: 2px solid var(--background-circle);
+    border-radius: 2px;
+    outline-offset: 4px;
+  }
 }
 
 img,

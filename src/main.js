@@ -7,17 +7,16 @@ const GITHUB_URL = "https://github.com/al-lumiere";
 const app = document.createElement("div");
 app.className = "app";
 
+const game = createGame();
+
 const header = createHeader({
-  onNewGame: () => {
-    console.log("New game");
-  },
+  onNewGame: game.newGame,
   onOpenLeaderboard: () => {
     console.log("Open leaderboard");
   },
 });
 
-const game = createGame();
 const footer = createFooter(GITHUB_URL);
 
-app.append(header, game, footer);
+app.append(header, game.element, footer);
 document.body.append(app);
