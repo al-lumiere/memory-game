@@ -19,7 +19,7 @@
 
 @media (max-width: 480px) {
   .statistics_item {
-    font-size: var(--title-four-size);
-    line-height: var(--title-four-lh);
+    font-size: var(--title-mobile-size);
+    line-height: var(--title-mobile-lh);
   }
 }

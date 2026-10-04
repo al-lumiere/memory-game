@@ -1,6 +1,6 @@
 import { createModal } from "../modal/modal.js";
 
-export function createVictoryModal ({ onNewGame }) {
+export function createVictoryModal({ onNewGame }) {
   const modal = createModal();
 
   modal.element.classList.add("victory_modal");
@@ -8,6 +8,9 @@ export function createVictoryModal ({ onNewGame }) {
   const title = document.createElement("h2");
   title.className = "victory_modal_title";
   title.textContent = "You won!";
+
+  title.tabIndex = -1;
+  title.autofocus = true;
 
   const message = document.createElement("p");
   message.className = "victory_modal_message";

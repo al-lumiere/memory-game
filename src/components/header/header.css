@@ -55,5 +55,10 @@
     font-size: var(--title-mobile-size);
     line-height: var(--title-mobile-lh);
     white-space: nowrap;
+
+    &:hover {
+      text-decoration: none;
+      text-underline-offset: 0px;
+    }
   }
 }
