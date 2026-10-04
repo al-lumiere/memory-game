@@ -99,7 +99,10 @@ export function createGame() {
       matchedPairs += 1;
       statistics.setPairs(matchedPairs);
 
-      main.style.setProperty("--background-circle", firstCard.dataset.color);
+      document.documentElement.style.setProperty(
+        "--background-circle",
+        firstCard.dataset.color,
+      );
 
       firstCard = null;
       secondCard = null;
@@ -145,7 +148,7 @@ export function createGame() {
     statistics.setMoves(0);
     statistics.setPairs(0);
 
-    main.style.removeProperty("--background-circle");
+    document.documentElement.style.removeProperty("--background-circle");
 
     renderCards();
   }

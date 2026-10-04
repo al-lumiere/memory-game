@@ -16,6 +16,13 @@
   &:hover {
     opacity: 1;
   }
+
+  &:focus-visible {
+    outline: 2px solid var(--background-circle);
+    border-radius: 2px;
+    outline-offset: 4px;
+    opacity: 1;
+  }
 }
 
 @media (max-width: 480px) {
