@@ -1,0 +1,9 @@
+@import "./global.css";
+@import "../components/header/header.css";
+@import "../components/footer/footer.css";
+@import "../components/card/card.css";
+@import "../game/game.css";
+@import "../components/statistics/statistics.css";
+@import "../components/modal/modal.css";
+@import "../components/victory-modal/victory-modal.css";
+@import "../components/leaderboard-modal/leaderboard-modal.css";

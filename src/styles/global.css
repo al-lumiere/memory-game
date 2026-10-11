@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap');
+
+:root {
+  --background: #D6E2F8;
+  --background-circle: #ffffff;
+  --cobalt: #4056E8;
+  --cyan: #55C7CE;
+  --green: #4DBB57;
+  --lime: #92E866;
+  --yellow: #FEE119;
+  --orange: #F25B32;
+  --pink: #E47FB5;
+  --purple: #B94DE4;
+  --text: #000000;
+
+  --title-one-size: 28px;
+  --title-one-lh: 34px;
+  --title-two-size: 20px;
+  --title-two-lh: 25px;
+  --title-three-size: 16px;
+  --title-three-lh: 20px;
+  --title-mobile-size: 12px;
+  --title-mobile-lh: 16px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100dvh;
+  display: flex;
+  margin: 0 auto;
+  font-family: "Cutive Mono", serif;
+  color: var(--text);
+  background-color: var(--background);
+  padding: 20px;
+}
+
+.app {
+  flex: 1;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 0;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  padding: 0;
+  color: inherit;
+  background: none;
+  border: none;
+
+  &:focus-visible {
+    outline: 2px solid var(--background-circle);
+    border-radius: 2px;
+    outline-offset: 4px;
+    opacity: 1;
+  }
+}
+
+img,
+svg {
+  display: block;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 480px) {
+  body {
+    padding-inline: 16px;
+  }
+}
